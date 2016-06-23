@@ -14,7 +14,9 @@ fi
 
 FILENAME="$(tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1).png"
 
-gnome-screenshot -a -f "$DESTINATION/$FILENAME"
+#gnome-screenshot -a -f "$DESTINATION/$FILENAME"
+import -frame "$DESTINATION/$FILENAME"
+
 
 echo "$URL/$FILENAME" | xclip -selection c
 
