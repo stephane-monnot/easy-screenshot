@@ -20,12 +20,13 @@ git clone https://github.com/shinbuntu/easy-screenshot.git easy-screenshot
 cd easy-screenshot && cp screenshot.example.conf screenshot.conf
 ```
 3/ Edit it.
-| Parameter                 | Description                     | Additional help                                                  | Examples                                                                            |
-|---------------------------|---------------------------------|------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| DESTINATION               | Save location of screen shots   | You can use a path, or ssh path if you use rsync as move command | - "/sshfs/destination_screenshot/" - "screenshot@example.com:/home/screenshot/http" |
-| MOVE_COMMAND              | The command to move screen shot | You can use mv, rsync, ...                                       | - "rsync -az --chmod=+r" - "mv"                                                     |
-| CAPTURE_SELECTION_COMMAND | The screen shot command         |                                                                  | - "import -frame"                                                                   |
-| URL                       | The base url of screen shots    |                                                                  | - "https://screenshot.example.fr"                                                   |
+
+Parameter                   | Description                       | Additional help                                                    | Examples                                                                            
+--------------------------- | --------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------
+DESTINATION                 | Save location of screen shots     | You can use a path, or ssh path if you use rsync as move command   | "/sshfs/destination_screenshot/" or "screenshot@example.com:/home/screenshot/http" 
+MOVE_COMMAND                | The command to move screen shot   | You can use mv, rsync, ...                                         | "rsync -az --chmod=+r" or "mv"                                                     
+CAPTURE_SELECTION_COMMAND   | The screen shot command           |                                                                    | "import -frame"                                                                   
+URL                         | The base url of screen shots      |                                                                    | "https://screenshot.example.fr"                                                   
 
 4/ Bind a keyboard shortcut
 Use the full path, you can get it by: 
