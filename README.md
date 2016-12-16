@@ -33,3 +33,5 @@ Use the full path, you can get it by:
 ```
 realpath ~/easy-screenshot/run.sh
 ```
+
+For animation gif, add --gif --window after the command and bind another keyboard shortcut.
