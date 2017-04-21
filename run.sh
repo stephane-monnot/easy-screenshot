@@ -36,12 +36,13 @@ else
     exit 255
 fi
 
-FILENAME="$(tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1)"
+#FILENAME="$(tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1)"
+FILENAME=$(head -100 /dev/urandom | tr -cd '[:alnum:]' | fold -w30 | head -n1)
 
 if [ $GIF == 1 ]
 then
     FILENAME="$FILENAME.gif"
-    TMPFILE="/tmp/current_capture_gif";
+    TMPFILE="$(mktemp).gif"
     if [ $WINDOW == 1 ]
     then
         # If byzanz-record is running, it kill him and just move the file
@@ -51,17 +52,16 @@ then
             kill $PID
             CAPTURE_CMD=""
         else
-            CAPTURE_CMD="$CAPTURE_GIF_WINDOW_COMMAND  $TMPFILE"
+            CAPTURE_CMD="$CAPTURE_GIF_WINDOW_COMMAND $TMPFILE"
         fi
     fi
 else
     FILENAME="$FILENAME.png"
-    TMPFILE="$(mktemp).png";
+    TMPFILE="$(mktemp).png"
     CAPTURE_CMD="$CAPTURE_SELECTION_COMMAND $TMPFILE"
 fi
 
 #gnome-screenshot -a -f "$DESTINATION/$FILENAME"
-
 $CAPTURE_CMD
 
 MOVE_CMD="$MOVE_COMMAND $TMPFILE $DESTINATION/$FILENAME"
