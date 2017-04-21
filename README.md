@@ -8,7 +8,7 @@
 - rsync (transfer tool) (only if MOVE_COMMAND is set to rsync)
 - import (screenshot tool) (only if CAPTURE_SELECTION_COMMAND is set to import)
 
-## Installation
+## Installation
 1/ Clone this repository:
 ```
 cd ~
